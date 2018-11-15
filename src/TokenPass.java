@@ -4,7 +4,7 @@ public class TokenPass {
     public TokenPass(int playerCount){
         board = new int[playerCount];
         for(int i = 0;i<playerCount;i++){
-            board[playerCount] = (int)(Math.random()*10) + 1;
+            board[i] = (int)(Math.random()*10) + 1;
         }
         currentPlayer = (int)(Math.random()*playerCount);
     }
@@ -17,14 +17,12 @@ public class TokenPass {
             board[nextPlayer] ++;
             tokens --;
         }
-
     }
-    public void nextPlayer(){
+   public void nextPlayer(){
            currentPlayer++;
            if(currentPlayer == board.length){
                currentPlayer = 0;
            }
-
     }
     public String printBoard(){
         String result = "";
@@ -34,12 +32,11 @@ public class TokenPass {
         return result;
     }
     public int gameOver(){
-        int winningPlayer = -1;
         for(int i = 0; i < board.length;i++){
             if(board[i] == 0){
-                winningPlayer = i;
+                return i;
             }
         }
-        return winningPlayer;
+        return -1;
     }
 }
