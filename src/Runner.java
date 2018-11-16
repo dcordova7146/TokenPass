@@ -7,7 +7,7 @@ public class Runner {
             game1.distributeTokens();
             game1.nextPlayer();
         }
-        game1.printBoard();
+        System.out.println(game1.printBoard());
         System.out.println("Game Winner: Player " + game1.gameOver());
     }
 }
